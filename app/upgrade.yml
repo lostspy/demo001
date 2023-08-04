@@ -1,0 +1,15 @@
+- name: Import Stop Application playbook
+  import_playbook: stop.yml
+
+- name: Check the disk space
+  import_playbook: disk.yml
+
+- name: Print success message
+  debug:
+    msg: "Application is successfully upgraded to  {{ pkg_ver }}"
+  when: pkg_ver is defined
+
+- name: Failed the task
+  fail:
+    msg: "Application is not upgraded"
+  when: pkg_ver is not defined

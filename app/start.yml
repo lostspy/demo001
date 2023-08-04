@@ -1,0 +1,13 @@
+- name: Display debug output
+  debug:
+    msg: |
+      Application has been started successfully!
+
+      **********************
+      *   APPLICATION UP   *
+      **********************
+  vars:
+    ansi_colors:
+      reset: "\033[0m"
+      bold: "\033[1m"
+      green_bg: "\033[42m"

@@ -1,0 +1,6 @@
+- name: Print success message
+  debug:
+    msg: |
+      \033[1;32m**************************
+      * PATCH APPLICATION SUCCESSFUL *
+      **************************\033[0m

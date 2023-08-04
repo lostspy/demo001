@@ -5,25 +5,25 @@
   gather_facts: false
   tasks:
     - name: Start the application services
-      import_tasks: start.yml
+      import_playbook: start.yml
       when: action == 'start'
 
     - name: Stop the application services
-      import_tasks: stop.yml
+      import_playbook: stop.yml
       when: action == 'stop'
       
     - name: Upgrade the application
-      import_tasks: upgrade.yml
+      import_playbook: upgrade.yml
       when: action == 'upgrade'
       
     - name: checking the disk of the nodes
-      import_tasks: disk.yml
+      import_playbook: disk.yml
       when: action == 'disk'
       
     - name: Patching the application services
-      import_tasks: patch.yml
+      import_playbook: patch.yml
       when: action == 'patch'
 
     - name: rollback the application to previous state
-      import_tasks: rollback.yml
+      import_playbook: rollback.yml
       when: action == 'rollback'

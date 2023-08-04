@@ -1,0 +1,16 @@
+- name: Get disk space facts
+  shell: "df --output=pcent / | tail -1 | cut -d' ' -f2"
+  register: df_output
+
+- name: Calculate percentage
+  set_fact:
+    disk_percentage: "{{ df_output.stdout | int }}"
+
+- name: Verify disk space
+  fail:
+    msg: "Free disk space is below 40%"
+  when: disk_percentage < 40
+
+- name: Display disk space status
+  debug:
+    msg: "Free disk space is {{ disk_percentage }}%"

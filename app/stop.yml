@@ -1,0 +1,13 @@
+- name: Display debug output
+  debug:
+    msg: |
+      Application has been stopped successfully!
+
+      **********************
+      * APPLICATION STOPPED *
+      **********************
+  vars:
+    ansi_colors:
+      reset: "\033[0m"
+      bold: "\033[1m"
+      red_bg: "\033[41m"
