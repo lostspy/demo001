@@ -20,7 +20,7 @@
     - name: fetch the file
       fetch:
         src: /tmp/health/system_facts_report.html
-        dest: /tmp/test/
+        dest: /data/
         owner: awx
         group: awx
         mode: 0775
