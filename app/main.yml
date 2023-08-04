@@ -1,0 +1,29 @@
+---
+- name: Application maintenance playbook
+  hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: Start the application services
+      import_tasks: start.yml
+      when: action == 'start'
+
+    - name: Stop the application services
+      import_tasks: stop.yml
+      when: action == 'stop'
+      
+    - name: Upgrade the application
+      import_tasks: upgrade.yml
+      when: action == 'upgrade'
+      
+    - name: checking the disk of the nodes
+      import_tasks: disk.yml
+      when: action == 'disk'
+      
+    - name: Patching the application services
+      import_tasks: patch.yml
+      when: action == 'patch'
+
+    - name: rollback the application to previous state
+      import_tasks: rollback.yml
+      when: action == 'rollback'
