@@ -16,3 +16,10 @@
       template:
         src: system_facts_template.html.j2
         dest: /tmp/health/system_facts_report.html
+
+    - name: fetch the file
+      fetch:
+        src: /tmp/health/system_facts_report.html
+        dest: /tmp/
+        mode: 0775
+        flat: yes
