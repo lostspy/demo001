@@ -20,6 +20,6 @@
     - name: fetch the file
       fetch:
         src: /tmp/health/system_facts_report.html
-        dest: /tmp/
+        dest: /tmp/test/
         mode: 0775
         flat: yes
