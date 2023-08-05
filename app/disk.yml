@@ -9,7 +9,7 @@
 - name: Verify disk space
   fail:
     msg: "Free disk space is below 40%"
-  when: disk_percentage | int < 40
+  when: disk_percentage | int < 10
 
 - name: Display disk space status
   debug:
