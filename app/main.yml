@@ -5,8 +5,8 @@
   gather_facts: false
   tasks:
     - name: Start the application services
-      import_tasks: start.yml
-      when: action == 'start'
+      include_tasks: start.yml
+      when: action is start
 
     - name: Stop the application services
       import_tasks: stop.yml
