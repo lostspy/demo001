@@ -13,3 +13,6 @@
   fail:
     msg: "Application is not upgraded"
   when: pkg_ver is not defined
+
+- name: Import Stop Application playbook
+  include_tasks: start.yml
