@@ -1,5 +1,5 @@
 - name: Get disk space facts
-  shell: "df --output=pcent /run | tail -1 | cut -d' ' -f2"
+  shell: "df --output=pcent / | tail -1 | cut -d' ' -f2"
   register: df_output
 
 - name: Calculate percentage
@@ -9,7 +9,7 @@
 - name: Verify disk space
   fail:
     msg: "Free disk space is below 40%"
-  when: disk_percentage | int < 10
+  when: disk_percentage | int > 40
 
 - name: Display disk space status
   debug:
