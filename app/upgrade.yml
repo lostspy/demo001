@@ -1,8 +1,8 @@
 - name: Import Stop Application playbook
-  import_playbook: stop.yml
+  include_tasks: stop.yml
 
 - name: Check the disk space
-  import_playbook: disk.yml
+  include_tasks: disk.yml
 
 - name: Print success message
   debug:
