@@ -3,7 +3,6 @@
   hosts: all
   become: true
   gather_facts: false
-  serial: 1
   tasks:
     - name: Start the application services
       include_tasks: start.yml
