@@ -4,7 +4,7 @@
 
 - name: Calculate percentage
   set_fact:
-    disk_percentage: "{{ df_output.stdout | int }}"
+    disk_percentage: "{{ df_output.stdout }}"
 
 - name: Verify disk space
   fail:
