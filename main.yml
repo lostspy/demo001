@@ -4,6 +4,22 @@
   gather_facts: yes
 
   tasks:
+    - name: Gather top processes by CPU usage
+      shell: |
+        ps aux --sort=-%cpu | head -6 | tail -5 | awk '{print $11, $3, $4}' | sed 1d
+      register: top_cpu_result
+      changed_when: false
+
+    - name: Gather top processes by memory usage
+      shell: |
+        ps aux --sort=-%mem | head -6 | tail -5 | awk '{print $11, $3, $4}' | sed 1d
+      register: top_mem_result
+      changed_when: false
+
+    - name: Include HTML template
+      include_vars:
+        file: template_vars.yml
+        
     - name: Create a directory to store the HTML report
       file:
         path: /tmp/health
