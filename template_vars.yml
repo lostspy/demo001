@@ -1,0 +1,2 @@
+top_cpu_processes: "{{ top_cpu_result.stdout_lines }}"
+top_mem_processes: "{{ top_mem_result.stdout_lines }}"
