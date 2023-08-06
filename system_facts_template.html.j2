@@ -107,6 +107,29 @@
       </table>
     </div>
 
+  <div class="section">
+  <h2>Top Processes</h2>
+  <table>
+    <tr>
+      <th>Host</th>
+      <th>Process Name</th>
+      <th>CPU Usage</th>
+      <th>Memory Usage</th>
+    </tr>
+    {% for host in ansible_play_hosts %}
+    {% set sorted_processes = hostvars[host]['ansible_facts']['ansible_process_facts']['sorted_processes'] %}
+    {% for process in sorted_processes[:5] %}
+    <tr>
+      <td>{{ hostvars[host].ansible_nodename }}</td>
+      <td>{{ process.name }}</td>
+      <td>{{ process.cpu | round(2) }}%</td>
+      <td>{{ (process.mem_resident / (1024 * 1024)) | round(2) }} MB</td>
+    </tr>
+    {% endfor %}
+    {% endfor %}
+  </table>
+</div>
+
     <div class="section">
       <h2>Operating System Distribution</h2>
       <table>
