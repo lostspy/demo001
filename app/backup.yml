@@ -1,0 +1,12 @@
+- name: Import Stop Application playbook
+  include_tasks: stop.yml
+
+- name: Check the disk space
+  include_tasks: disk.yml
+
+- name: Print success message
+  debug:
+    msg: "Backup has been successfully taken at /app_dir"
+
+- name: Import Stop Application playbook
+  include_tasks: start.yml
