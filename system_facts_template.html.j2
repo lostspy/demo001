@@ -89,25 +89,5 @@
       {% endfor %}
     </table>
   </div>
-
-  <div class="section">
-    <h2>Zombie Processes</h2>
-    <table>
-      <tr>
-        <th>Host</th>
-        <th>Zombie Processes</th>
-      </tr>
-      {% for host in ansible_play_hosts %}
-      <tr>
-        <td>{{ hostvars[host].ansible_nodename }}</td>
-        <td>
-          {% for process in hostvars[host]['ansible_proc_zombie'] %}
-          {{ process }}<br/>
-          {% endfor %}
-        </td>
-      </tr>
-      {% endfor %}
-    </table>
-  </div>
 </body>
 </html>
