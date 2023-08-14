@@ -39,12 +39,6 @@
         grep -e '^tcp.*LISTEN.*sshd'
       register: netstat_sshd_output
 
-    - debug:
-        msg: "The SSHD PIDs are {{ sshd_pids.stdout | join(', ') }}"
-
-    - debug:
-        msg: "The Netstat Listening Output for SSHD Processes is {{ netstat_sshd_output.stdout }}"
-
     - name: Gather system facts
       setup:
 
