@@ -42,3 +42,22 @@
         group: awx
         mode: 0775
         flat: yes
+
+
+---
+- hosts: localhost
+  become: yes
+  tasks:
+  - name: Copy index.html to /var/www/html/index.html
+    copy:
+      src: /data/index.html
+      dest: /var/www/html/index.html
+      owner: apache
+      group: apache
+      mode: 644
+
+  - name: Start httpd service
+    service:
+      name: httpd
+      state: restarted
+      enabled: yes
