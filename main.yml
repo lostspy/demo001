@@ -37,8 +37,8 @@
     - name: fetch the file
       fetch:
         src: /tmp/health/system_facts_report.html
-        dest: /var/www/html/index.html
-        owner: apache
-        group: apache
+        dest: /data/index.html
+        owner: awx
+        group: awx
         mode: 0775
         flat: yes
