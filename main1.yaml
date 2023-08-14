@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name: Copy index.html to /var/www/html
-    shell: cp /data/system_facts_report.html /var/www/html/index.html
+    shell: sudo cp /data/system_facts_report.html /var/www/html/index.html
 
   - name: Restart httpd
     service:
