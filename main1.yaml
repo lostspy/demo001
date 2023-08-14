@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+  - name: Copy index.html to /var/www/html
+    copy:
+      src: /data/system_facts_report.html
+      dest: /var/www/html/index.html
+
+  - name: Restart httpd
+    service:
+      name: httpd
+      state: restarted
