@@ -42,8 +42,7 @@
         group: awx
         mode: 0775
         flat: yes
-
-
+...
 ---
 - hosts: localhost
   become: yes
