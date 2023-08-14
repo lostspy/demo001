@@ -25,20 +25,6 @@
         path: /tmp/health
         state: directory
         
-    - name: Get SSHD PIDs
-      shell: ps -ef | grep sshd | awk '{print $2}'
-      register: sshd_pids
-
-    - name: Get Netstat Listening Output for SSHD Processes
-      shell: |
-        netstat -an
-        if [ -z "$stdout" ]; then
-          echo "No listening sockets for SSHD processes found."
-          exit 0
-        fi
-        grep -e '^tcp.*LISTEN.*sshd'
-      register: netstat_sshd_output
-
     - name: Gather system facts
       setup:
 
