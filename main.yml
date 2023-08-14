@@ -37,17 +37,8 @@
     - name: fetch the file
       fetch:
         src: /tmp/health/system_facts_report.html
-        dest: /data/index.html
+        dest: /data/
         owner: awx
         group: awx
         mode: 0775
         flat: yes
-
-    - name: Copy index.html to /var/www/html/index.html
-      copy:
-        src: /data/index.html
-        dest: /var/www/html/index.html
-        owner: apache
-        group: apache
-        mode: 644
-      delegate_to: controller
